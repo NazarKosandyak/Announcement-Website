@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { ToastrModule } from 'ngx-toastr';
       closeButton: true,
       timeOut:2000,
     }),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
