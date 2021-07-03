@@ -1,0 +1,80 @@
+<main>
+    <div class="createAnn">
+        <p>List of announcement </p>
+        <div class="addNew">
+            <button (click)="addAnnouncement()">Add an announcement</button>
+            <img src="../../../assets/image/cross.png" alt="">
+        </div>
+    </div>
+    <div class="seacrh">
+            <div class="box">
+                <input class="search" [(ngModel)]="getTitle" type="text">
+                <button (click)="search()"></button>
+            </div>
+    </div>
+    <div class="announcement" [ngClass]="{'chosen':!showSearch}" *ngFor="let item of  showSearch ? myData : searchArray">
+        <div class="date">
+            <img src="../../../assets/image/clock.png" alt="">
+            <p>{{item.date}}</p>
+        </div>
+        <div class="about">
+            <div class="title">
+                <p><span class="boldSpan">Title:</span> {{item.title}}</p>
+            </div>
+           
+        </div>
+        <div class="action">
+            <button (click)="editAnnouncement(item)"><img src="../../../assets/image/edit.png" alt=""></button>
+            <button (click)="deleteAnnouncement(item.id)"><img src="../../../assets/image/trash.png" alt=""></button>
+            <button (click)="infoAnnouncement(item)"><img src="../../../assets/image/information.png" alt=""></button>
+        </div>
+        <div class="info" *ngIf="showDetails">
+            <div class="upper">
+                <p>Informatino</p>
+                <button (click)="closeAdd()"></button>
+            </div>  
+            <div class="contentInfo">
+                <p>Tittle:<span> {{titleDetails}}</span></p>
+                <p>Description:<span> {{descriptionDetails}}</span></p>
+                <p>Date<span> {{dateDetails}}</span></p>
+            </div>
+            <button (click)="closeAdd()" class="close">Close</button>
+        </div>
+        
+    </div>
+    <button *ngIf="!showSearch" (click)="backToAll()" class="back"></button>
+</main>
+
+<div class="modal" *ngIf="showModalAdd">
+    <div class="upper">
+        <p>Add an announcement</p>
+        <button (click)="closeAdd()"></button>
+    </div>
+    <div class="content">
+        <form class="adForm" [formGroup]="AdvertisementForm">
+            <p>Title:</p>
+            <input type="text" formControlName="title" name="title" placeholder="Enter title..">
+            <p>Description:</p>
+            <input type="text" formControlName="description" name="description" placeholder="Enter description..">
+        </form>
+    </div>
+    <button (click)="saveAnnouncment()" class="save">Save it</button>
+</div>
+
+<div class="modal" *ngIf="showModalEdit">
+    <div class="upper">
+        <p>Edit an announcement</p>
+        <button (click)="closeAdd()"></button>
+    </div>
+    <div class="content">
+        <form class="adForm" [formGroup]="EditForm">
+            <p>Title:</p>
+            <input type="text" formControlName="title" name="title" placeholder="Enter title..">
+            <p>Description:</p>
+            <input type="text" formControlName="description" name="description" placeholder="Enter description..">
+        </form>
+    </div>
+    <button (click)="saveEdit()" class="save">Save it</button>
+</div>
+
+
