@@ -165,28 +165,29 @@ export class MainComponent implements OnInit {
 
     const splitTitle = item.title.split(' ')
     const splitDescription = item.description.split(' ')
-    const similarAnnouncement = []
+    let similarAnnouncement = []
     for (const iteratorTitle of splitTitle) {
       for (const iteratorDesc of splitDescription) {
           this.myData.filter(function(announcement){
             if(announcement.title.includes(iteratorTitle) && announcement.description.includes(iteratorDesc)){
               if(similarAnnouncement.length <3){
-                similarAnnouncement.push(announcement)
+                if(!similarAnnouncement.includes(announcement)){
+                  similarAnnouncement.push(announcement)
+                }
               }
             }
+            
           });break
-      };break
-    }  
+      };continue
+    }
     this.setSimilarAnnouncement = similarAnnouncement
-    
-
   }
   search():void{
     let getValue = document.querySelector('.search') as HTMLInputElement    
     if(this.getTitle){
-      const filterArray = this.myData.filter(function(item,index){
+      const filterArray = this.myData.filter(function(item){
         if(item.title == getValue.value.replace(/\s{2,}/g,"")){
-          return {item,index}
+          return {item}
         }
       })
       this.searchArray = filterArray
