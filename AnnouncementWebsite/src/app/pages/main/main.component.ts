@@ -20,7 +20,8 @@ export class MainComponent implements OnInit {
   showDetails:boolean = false;
   showSearch:boolean = true
   myData:any;
-  searchArray:object[]
+  searchArray:object[];
+  setSimilarAnnouncement:string[]
   date: Date = new Date();
   id: number;
   constructor(
@@ -161,14 +162,30 @@ export class MainComponent implements OnInit {
     this.dateDetails=item.date
     this.showDetails = true;
     document.body.style.background = 'rgba(0, 0, 0, 0.05)';
+
+    const splitTitle = item.title.split(' ')
+    const splitDescription = item.description.split(' ')
+    const similarAnnouncement = []
+    for (const iteratorTitle of splitTitle) {
+      for (const iteratorDesc of splitDescription) {
+          this.myData.filter(function(announcement){
+            if(announcement.title.includes(iteratorTitle) && announcement.description.includes(iteratorDesc)){
+              if(similarAnnouncement.length <3){
+                similarAnnouncement.push(announcement)
+              }
+            }
+          });break
+      };break
+    }  
+    this.setSimilarAnnouncement = similarAnnouncement
     
 
   }
   search():void{
-    let getValue = document.querySelector('.search') as HTMLInputElement
+    let getValue = document.querySelector('.search') as HTMLInputElement    
     if(this.getTitle){
       const filterArray = this.myData.filter(function(item,index){
-        if(item.title == getValue.value){
+        if(item.title == getValue.value.replace(/\s{2,}/g,"")){
           return {item,index}
         }
       })
@@ -200,6 +217,7 @@ export class MainComponent implements OnInit {
     this.showDetails = false;
     document.body.style.background = 'none';
   }
+  
   success(messege): void {
     this.toastr.success(messege);
   }

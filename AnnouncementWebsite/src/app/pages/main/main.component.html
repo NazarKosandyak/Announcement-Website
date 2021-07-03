@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="seacrh">
-            <div class="box">
+            <div *ngIf="showSearch" class="box">
                 <input class="search" [(ngModel)]="getTitle" type="text">
                 <button (click)="search()"></button>
             </div>
@@ -36,9 +36,30 @@
             <div class="contentInfo">
                 <p>Tittle:<span> {{titleDetails}}</span></p>
                 <p>Description:<span> {{descriptionDetails}}</span></p>
-                <p>Date<span> {{dateDetails}}</span></p>
+                <p>Date:<span> {{dateDetails}}</span></p>
             </div>
-            <button (click)="closeAdd()" class="close">Close</button>
+            <div class="similar">
+                <div class="topThree">
+                    <p>Top similar announcements</p>
+                </div>
+                <div class="items" *ngFor="let item of setSimilarAnnouncement">
+                    <div class="viewDate">
+                        <img src="../../../assets/image/clock.png" alt="">
+                        <p>{{item.date}}</p>
+                    </div>
+                    <div class="about">
+                        <div class="title">
+                            <p><span class="boldSpan">Title:</span> {{item.title}}</p>
+                        </div>
+                       
+                    </div>
+                    <div class="action">
+                        <button (click)="infoAnnouncement(item)"><img src="../../../assets/image/information.png" alt=""></button>
+                    </div>
+                </div>
+                <button (click)="closeAdd()" class="close">Close</button>
+            </div>
+           
         </div>
         
     </div>
