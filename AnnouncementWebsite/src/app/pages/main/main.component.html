@@ -8,11 +8,13 @@
     </div>
     <div class="seacrh">
             <div *ngIf="showSearch" class="box">
-                <input  class="search" [(ngModel)]="getTitle" type="text" placeholder="Search...">
+                <input  class="search" [(ngModel)]="getTitle" type="text" placeholder="Search..">
                 <button (click)="search()"></button>
             </div>
     </div>
+    <p *ngIf="checkAds" class="attention">You don't have any announcement yet, it's time to add them</p>
     <div class="announcement" [ngClass]="{'chosen':!showSearch}" *ngFor="let item of  showSearch ? myData : searchArray">
+     
         <div class="date">
             <img src="../../../assets/image/clock.png" alt="">
             <p>{{item.date}}</p>

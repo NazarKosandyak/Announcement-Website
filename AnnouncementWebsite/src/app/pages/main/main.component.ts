@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
   showModalEdit: boolean = false;
   showDetails:boolean = false;
   showSearch:boolean = true
+  checkAds:boolean = true
   myData:any;
   searchArray:object[];
   setSimilarAnnouncement:string[]
@@ -38,6 +39,12 @@ export class MainComponent implements OnInit {
   getData(): void {
     this.mainService.get().subscribe(data => {
       this.myData = data;
+      if(this.myData.length <=0){
+        this.checkAds = true
+      }
+      else{
+        this.checkAds = false
+      }
     })
   }
   initFormAdd(): void {
@@ -176,9 +183,8 @@ export class MainComponent implements OnInit {
                 }
               }
             }
-            
-          });break
-      };continue
+          })
+      }
     }
     this.setSimilarAnnouncement = similarAnnouncement
   }

@@ -1,46 +1,28 @@
 {
   "announcement": [
     {
-      "title": "sell apartaments",
-      "description": "sell apartaments",
-      "date": "03.06.2021 | 15:12",
+      "title": "two",
+      "description": "two",
+      "date": "03.06.2021 | 21:05",
+      "id": 2
+    },
+    {
+      "title": "every",
+      "description": "every",
+      "date": "03.06.2021 | 21:05",
       "id": 3
     },
     {
-      "title": "get income",
-      "description": "get income",
-      "date": "03.06.2021 | 13:49",
+      "title": "every night",
+      "description": "every night",
+      "date": "03.06.2021 | 21:05",
       "id": 4
     },
     {
-      "title": "send CV",
-      "description": "send CV",
-      "date": "03.06.2021 | 15:32",
+      "title": "one",
+      "description": "another one",
+      "date": "03.06.2021 | 21:05",
       "id": 5
-    },
-    {
-      "title": "test",
-      "description": "test",
-      "date": "03.06.2021 | 15:32",
-      "id": 6
-    },
-    {
-      "title": "buy auto",
-      "description": "buy auto",
-      "date": "03.06.2021 | 15:32",
-      "id": 7
-    },
-    {
-      "title": "sell boat",
-      "description": "sell boat",
-      "date": "03.06.2021 | 17:27",
-      "id": 8
-    },
-    {
-      "title": "something sell tommorow",
-      "description": "sell tommorow",
-      "date": "03.06.2021 | 18:51",
-      "id": 10
     }
   ]
 }
