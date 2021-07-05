@@ -13,8 +13,8 @@ server.use(middlewares);
 server.use(router);
 server.listen(port);
 
-// app.use(express.static('./dist/AnnouncementWebsite'));
-// app.get('/*', (req, res) =>
-//     res.sendFile('index.html', {root: 'dist/AnnouncementWebsite/'}),
-// );
+app.use(express.static('./dist/AnnouncementWebsite'));
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/AnnouncementWebsite/'}),
+);
 // app.listen(process.env.PORT || 5000);
