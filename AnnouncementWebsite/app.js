@@ -11,7 +11,7 @@ server.use(jsonServer.rewriter({
     '/api/*':'/$1',
 }))
 server.use(router)
-server.use(process.env.PORT || 5000)
+server.use(process.env.PORT || 3000)
 
 const app = express();
 
