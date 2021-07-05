@@ -15,7 +15,7 @@ server.use(process.env.PORT || 5000)
 
 const app = express();
 
-// Serve only the static files form the dist directory
+// Serve only the static files form the dist directoryget
 app.use(express.static('./dist/AnnouncementWebsite'));
 
 app.get('/*', (req, res) =>
