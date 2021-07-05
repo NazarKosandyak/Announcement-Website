@@ -15,7 +15,7 @@ server.use(router);
 
 
 app.use(express.static('./dist/AnnouncementWebsite'));
-app.get('db.json', (req, res) =>
+app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/AnnouncementWebsite/'}),
     
 );
