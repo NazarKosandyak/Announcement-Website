@@ -39,6 +39,8 @@ export class MainComponent implements OnInit {
   getData(): void {
     this.mainService.get().subscribe(data => {
       this.myData = data;
+      console.log(data);
+      
       if(this.myData.length <=0){
         this.checkAds = true
       }

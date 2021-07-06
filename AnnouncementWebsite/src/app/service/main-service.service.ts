@@ -11,7 +11,7 @@ export class MainServiceService {
   constructor(
     private http:HttpClient
   ) { 
-    this.url = 'https://my-json-server.typicode.com/NazarKosandyak/Announcement-Website/db'
+    this.url = 'https://my-json-server.typicode.com/NazarKosandyak/Announcement-Website/blob/master/announcement'
   }
   get():Observable<IMain>{
     return this.http.get<IMain>(this.url)
