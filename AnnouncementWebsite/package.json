@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "npm run json:server & npm run node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "json:server": "json-server --watch db.json",
     "postinstall": "ng build --prod"
   },
   "private": true,
