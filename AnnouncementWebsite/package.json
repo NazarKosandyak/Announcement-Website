@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "json:server": "json-server --watch db.json",
-    "json:server:remote":  "json-server http://jsonplaceholder.typicode.com/db",
     "postinstall": "ng build --prod"
   },
   "private": true,
