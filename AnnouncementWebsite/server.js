@@ -19,8 +19,14 @@ const app = express();
 
 const port = process.env.PORT || 5000
 app.use(express.static(__dirname + '/dist/AnnouncementWebsite'));
-app.get('/*',(req,res)=>{res.sendFile(path.join(__dirname))});
+app.get('/*',(req,res)=>{'index.html',{root:'dist/AnnouncementWebsite/'}});
+app.listen(port)
 
+const jsonServer = require('json-server');
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
-server.listen(port,()=>console.log('Running...'))
+const middlewares = jsonServer.defaults();
+server.use(middlewares)
+server.use(router)
+const serverPort = process.env.PORT || 3000
+server.listen(serverPort,()=>console.log('Running...'))
