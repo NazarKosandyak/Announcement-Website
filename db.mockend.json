@@ -1,3 +1,7 @@
 {
-  "announcement": []
+  "announcement": [
+    {
+    "test":1
+    }
+  ]
 }
