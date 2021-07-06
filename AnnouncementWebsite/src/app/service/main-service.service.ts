@@ -11,7 +11,7 @@ export class MainServiceService {
   constructor(
     private http:HttpClient
   ) { 
-    this.url = 'https://api-announcement.herokuapp.com/announcement'
+    this.url = 'http://localhost:3000/announcement'
   }
   get():Observable<IMain>{
     return this.http.get<IMain>(this.url)
